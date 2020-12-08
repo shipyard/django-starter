@@ -1,0 +1,31 @@
+version: '3.8'
+   
+services:
+
+  django:
+    labels:
+      shipyard.before: 'poetry run python src/manage.py migrate'
+      shipyard.route: '/'
+    build: .
+    volumes:
+      - './src:/srv/src:ro'
+    ports:
+      - '8080:8080'
+    depends_on:
+      - postgres
+
+  postgres:
+    image: 'postgres:9.6.20-alpine'
+    restart: always
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+    environment:
+      - POSTGRES_DB=app
+      - POSTGRES_USER=obscure-user
+      - POSTGRES_PASSWORD=obscure-password
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - '5432'
+
+volumes:
+  postgres:

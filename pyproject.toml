@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "shipyard-django-starter"
+version = "0.1.0"
+description = ""
+authors = ["Shipyard <team@shipyard.build>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^3.1.4"
+psycopg2-binary = "^2.8.6"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
