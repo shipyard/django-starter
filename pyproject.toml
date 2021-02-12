@@ -5,9 +5,9 @@ description = ""
 authors = ["Shipyard <team@shipyard.build>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
-Django = "^3.1.4"
-psycopg2-binary = "^2.8.6"
+python = "3.8.7"
+Django = "3.1.4"
+psycopg2-binary = "2.8.6"
 
 [tool.poetry.dev-dependencies]
 

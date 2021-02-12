@@ -1,4 +1,4 @@
-FROM python:3.9.0-alpine
+FROM python:3.8-alpine3.13
 
 WORKDIR /srv
 
@@ -17,6 +17,10 @@ RUN apk add --update --no-cache \
   automake \
   build-base \
   postgresql-dev
+
+# cryptography module incompatibility with PEP517
+# https://github.com/pyca/cryptography/issues/5771
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 # Install poetry
 RUN pip install poetry
