@@ -4,7 +4,7 @@ services:
 
   django:
     labels:
-      shipyard.before: 'poetry run python src/manage.py migrate'
+      shipyard.init: 'poetry run python src/manage.py migrate'
       shipyard.route: '/'
     build: .
     volumes:
